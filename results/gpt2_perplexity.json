@@ -1,0 +1,306 @@
+{
+  "boundary": {
+    "all_heads_all_layers_replaced": true,
+    "changes_generation": false,
+    "measures_perplexity": true,
+    "note": "teacher-forced perplexity, one text, GPT-2 small"
+  },
+  "classification": "PASS_LOWPASS_LOWERS_PERPLEXITY_AT_EQUAL_BUDGET",
+  "frozen": {
+    "chunk": 1024,
+    "far_start": 48,
+    "n_chunks": 8,
+    "specs": {
+      "b128_sink1_window119_lowpass": {
+        "levels": 7,
+        "read": "lowpass",
+        "sink": 1,
+        "window": 119
+      },
+      "b128_sink1_window127": {
+        "levels": 0,
+        "read": "lowpass",
+        "sink": 1,
+        "window": 127
+      },
+      "b48_sink1_window39_band": {
+        "levels": 7,
+        "read": "band",
+        "sink": 1,
+        "window": 39
+      },
+      "b48_sink1_window39_lowpass": {
+        "levels": 7,
+        "read": "lowpass",
+        "sink": 1,
+        "window": 39
+      },
+      "b48_sink1_window39_only": {
+        "levels": 7,
+        "read": "window_only",
+        "sink": 1,
+        "window": 39
+      },
+      "b48_sink1_window47": {
+        "levels": 0,
+        "read": "lowpass",
+        "sink": 1,
+        "window": 47
+      },
+      "b48_sink4_window44": {
+        "levels": 0,
+        "read": "lowpass",
+        "sink": 4,
+        "window": 44
+      },
+      "b48_window48": {
+        "levels": 0,
+        "read": "lowpass",
+        "sink": 0,
+        "window": 48
+      },
+      "full_cache": {
+        "levels": 0,
+        "read": "lowpass",
+        "sink": 0,
+        "window": null
+      }
+    },
+    "taus": [
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ]
+  },
+  "gate": "gpt2_perplexity_all_heads",
+  "methods": {
+    "b128_sink1_window119_lowpass": {
+      "all_perplexity": 77.20078273280843,
+      "far_mean_nll": 4.308672813600868,
+      "far_perplexity": 74.34175806750714,
+      "per_chunk_far_mean_nll": [
+        4.315603524060716,
+        4.416211195600865,
+        4.52862984483115,
+        4.336748510689496,
+        4.309621876122606,
+        3.5321899120662934,
+        4.6819359290857445,
+        4.348441716350064
+      ],
+      "scalar_budget_per_head": 16263
+    },
+    "b128_sink1_window127": {
+      "all_perplexity": 86.45527561340242,
+      "far_mean_nll": 4.427464244360353,
+      "far_perplexity": 83.71885696043852,
+      "per_chunk_far_mean_nll": [
+        4.5283709795757305,
+        4.439995438531836,
+        4.638400616369945,
+        4.397611040400251,
+        4.458030046973997,
+        3.724631674335386,
+        4.8162898872881525,
+        4.416384271407523
+      ],
+      "scalar_budget_per_head": 16384
+    },
+    "b48_sink1_window39_band": {
+      "all_perplexity": 115.49422222169216,
+      "far_mean_nll": 4.731812625079506,
+      "far_perplexity": 113.50111096137564,
+      "per_chunk_far_mean_nll": [
+        4.7472328041489025,
+        4.86367206109692,
+        4.836242007265059,
+        4.746729343191986,
+        4.710656069141021,
+        4.120112656886458,
+        4.905926364621527,
+        4.923929694284171
+      ],
+      "scalar_budget_per_head": 6023
+    },
+    "b48_sink1_window39_lowpass": {
+      "all_perplexity": 105.25357890765093,
+      "far_mean_nll": 4.633626704136362,
+      "far_perplexity": 102.88652728946414,
+      "per_chunk_far_mean_nll": [
+        4.659367648443101,
+        4.808494894466624,
+        4.739816988741856,
+        4.647350637627959,
+        4.625244808068386,
+        3.9874719322889227,
+        4.800880428258287,
+        4.800386295195766
+      ],
+      "scalar_budget_per_head": 6023
+    },
+    "b48_sink1_window39_only": {
+      "all_perplexity": 157.33954936554605,
+      "far_mean_nll": 5.0563663706926025,
+      "far_perplexity": 157.01892990017626,
+      "per_chunk_far_mean_nll": [
+        5.10229952389926,
+        5.050987477633814,
+        5.182529925399073,
+        4.996367893596685,
+        5.092597951109116,
+        4.579716151302052,
+        5.2248370580198795,
+        5.221594984580944
+      ],
+      "scalar_budget_per_head": 6023
+    },
+    "b48_sink1_window47": {
+      "all_perplexity": 134.67912763292088,
+      "far_mean_nll": 4.892554544796768,
+      "far_perplexity": 133.29364408922734,
+      "per_chunk_far_mean_nll": [
+        4.9418051091523205,
+        4.9478942284522915,
+        5.071315328020435,
+        4.823533779336391,
+        4.860842183765257,
+        4.380086107176917,
+        5.116153061429242,
+        4.998806561041287
+      ],
+      "scalar_budget_per_head": 6144
+    },
+    "b48_sink4_window44": {
+      "all_perplexity": 138.3754839614011,
+      "far_mean_nll": 4.920963277402999,
+      "far_perplexity": 137.1346482909099,
+      "per_chunk_far_mean_nll": [
+        4.881373683131631,
+        4.968824549685175,
+        5.113289752999177,
+        4.913065817828774,
+        4.901975191279006,
+        4.441509924008359,
+        5.096978814378153,
+        5.050688485913715
+      ],
+      "scalar_budget_per_head": 6144
+    },
+    "b48_window48": {
+      "all_perplexity": 4533.210344097439,
+      "far_mean_nll": 8.581954768481229,
+      "far_perplexity": 5334.523097633296,
+      "per_chunk_far_mean_nll": [
+        8.486307120710743,
+        8.604242684240603,
+        8.878979389611564,
+        8.42487672844533,
+        8.714817117982673,
+        8.105942443222002,
+        8.832750907050238,
+        8.60772175658668
+      ],
+      "scalar_budget_per_head": 6144
+    },
+    "full_cache": {
+      "all_perplexity": 76.08860157248498,
+      "far_mean_nll": 4.293447295191493,
+      "far_perplexity": 73.21843951533525,
+      "per_chunk_far_mean_nll": [
+        4.267245739708658,
+        4.368189580832342,
+        4.453835720743274,
+        4.4035044937728856,
+        4.1485830181417125,
+        3.6197892595437113,
+        4.615482363360186,
+        4.4709481854291715
+      ],
+      "scalar_budget_per_head": null
+    }
+  },
+  "model_id": "openai-community/gpt2",
+  "model_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "parity": {
+    "classification": "PASS",
+    "max_logit_abs_error": 0.002657404017384124,
+    "mean_nll_abs_error": 4.023984141454662e-07,
+    "tolerances": [
+      0.05,
+      0.001
+    ]
+  },
+  "questions": {
+    "b48_band_beats_sink_window": {
+      "baseline_far_perplexity": 133.29364408922734,
+      "chunk_wins": 8,
+      "chunks": 8,
+      "far_perplexity": 113.50111096137564,
+      "fraction_of_gap_to_full_cache_closed": 0.26830241133481153,
+      "full_cache_far_perplexity": 73.21843951533525,
+      "pass": true
+    },
+    "b48_lowpass_beats_band": {
+      "baseline_far_perplexity": 113.50111096137564,
+      "chunk_wins": 8,
+      "chunks": 8,
+      "far_perplexity": 102.88652728946414,
+      "fraction_of_gap_to_full_cache_closed": 0.22398194895619825,
+      "full_cache_far_perplexity": 73.21843951533525,
+      "pass": true
+    },
+    "primary_b48_lowpass_beats_sink_window": {
+      "baseline_far_perplexity": 133.29364408922734,
+      "chunk_wins": 8,
+      "chunks": 8,
+      "far_perplexity": 102.88652728946414,
+      "fraction_of_gap_to_full_cache_closed": 0.4321894632905911,
+      "full_cache_far_perplexity": 73.21843951533525,
+      "pass": true
+    },
+    "reference_sink1_vs_no_sink": {
+      "baseline_far_perplexity": 5334.523097633296,
+      "chunk_wins": 8,
+      "chunks": 8,
+      "far_perplexity": 133.29364408922734,
+      "fraction_of_gap_to_full_cache_closed": 0.8602993574485491,
+      "full_cache_far_perplexity": 73.21843951533525,
+      "pass": true
+    },
+    "reference_sink1_vs_sink4": {
+      "baseline_far_perplexity": 137.1346482909099,
+      "chunk_wins": 6,
+      "chunks": 8,
+      "far_perplexity": 133.29364408922734,
+      "fraction_of_gap_to_full_cache_closed": 0.045271727591880404,
+      "full_cache_far_perplexity": 73.21843951533525,
+      "pass": true
+    },
+    "secondary_b128_lowpass_beats_sink_window": {
+      "baseline_far_perplexity": 83.71885696043852,
+      "chunk_wins": 8,
+      "chunks": 8,
+      "far_perplexity": 74.34175806750714,
+      "fraction_of_gap_to_full_cache_closed": 0.8863910982618247,
+      "full_cache_far_perplexity": 73.21843951533525,
+      "pass": true
+    }
+  },
+  "runtime": {
+    "model_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "tokenizer_class": "GPT2TokenizerFast",
+    "tokenizer_name": "openai-community/gpt2",
+    "torch_version": "2.7.1+cu118",
+    "transformers_version": "4.57.6"
+  },
+  "text": {
+    "path": "tinyshakespeare_head.txt",
+    "sha256": "3f0590676115fc4d4c2edd6466f021f46b5bf5d4acd77cb63fdcc338ac3cacef",
+    "source": "karpathy/char-rnn tinyshakespeare input.txt, first 44,961 chars",
+    "tokens": 13727
+  }
+}

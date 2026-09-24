@@ -1,0 +1,79 @@
+{
+  "address_operator_shape": [
+    12,
+    12
+  ],
+  "boundary": "Gate 0 is algebraic validation only. It does not compress KV history, replace softmax attention, establish an LLM architecture advantage, or make a biological claim.",
+  "by_sequence_length": [
+    {
+      "case_count": 8,
+      "max_attention_abs_error": 3.3306690738754696e-16,
+      "max_logit_abs_error": 9.992007221626409e-16,
+      "max_output_abs_error": 5.551115123125783e-16,
+      "mean_output_cosine_similarity": 1.0,
+      "output_relative_rmse": 2.680139142184876e-16,
+      "sequence_length": 4
+    },
+    {
+      "case_count": 8,
+      "max_attention_abs_error": 2.7755575615628914e-16,
+      "max_logit_abs_error": 1.3322676295501878e-15,
+      "max_output_abs_error": 6.661338147750939e-16,
+      "mean_output_cosine_similarity": 1.0,
+      "output_relative_rmse": 2.9473496857494245e-16,
+      "sequence_length": 8
+    },
+    {
+      "case_count": 8,
+      "max_attention_abs_error": 3.3306690738754696e-16,
+      "max_logit_abs_error": 1.5543122344752192e-15,
+      "max_output_abs_error": 1.1102230246251565e-15,
+      "mean_output_cosine_similarity": 1.0,
+      "output_relative_rmse": 3.709999388019397e-16,
+      "sequence_length": 16
+    },
+    {
+      "case_count": 8,
+      "max_attention_abs_error": 3.3306690738754696e-16,
+      "max_logit_abs_error": 1.7763568394002505e-15,
+      "max_output_abs_error": 1.3322676295501878e-15,
+      "mean_output_cosine_similarity": 1.0,
+      "output_relative_rmse": 3.6004044391809447e-16,
+      "sequence_length": 24
+    }
+  ],
+  "case_count": 32,
+  "claim": "For this frozen deterministic head, M=W_Q W_K^T and N=W_V W_O re-express ordinary causal attention with zero fitted parameters to floating-point tolerance.",
+  "classification": "PASS_EXACT_COMPILER",
+  "d_head": 6,
+  "d_model": 12,
+  "evaluation_seeds": [
+    11,
+    23,
+    47,
+    89,
+    173,
+    347,
+    691,
+    1381
+  ],
+  "gate": "gate0_exact_address_write_compiler",
+  "learned_parameter_count": 0,
+  "max_attention_abs_error": 3.3306690738754696e-16,
+  "max_logit_abs_error": 1.7763568394002505e-15,
+  "max_output_abs_error": 1.3322676295501878e-15,
+  "mean_output_cosine_similarity": 1.0,
+  "output_relative_rmse": 3.428836511204056e-16,
+  "sequence_lengths": [
+    4,
+    8,
+    16,
+    24
+  ],
+  "tolerance": 1e-12,
+  "weight_seed": 20260924,
+  "write_operator_shape": [
+    12,
+    12
+  ]
+}

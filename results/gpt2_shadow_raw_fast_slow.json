@@ -1,0 +1,117 @@
+{
+  "adapter_parity": {
+    "classification": "PASS",
+    "max_attention_abs_error": 1.1223614678201876e-06,
+    "max_full_module_abs_error": 4.693321664639427e-06,
+    "max_mixture_abs_error": 2.183501206953764e-06,
+    "tolerance": 1e-05
+  },
+  "boundary": {
+    "changes_generation": false,
+    "measures_perplexity": false,
+    "removes_kv_cache": false,
+    "replaces_live_attention": false
+  },
+  "classification": "PASS_ADAPTER_PARITY_SHADOW_MEASURED",
+  "component_vectors": 8,
+  "contexts": {
+    "held_out": [
+      "The museum closed at six, but the guide stayed behind to answer questions about the old navigation instruments.",
+      "On Tuesday, Lina mailed the red envelope to her brother and kept the green one for the meeting on Friday.",
+      "The dog ignored the empty bowl until someone opened the cupboard where its food was stored.",
+      "At the station, the northbound train arrived first, even though the display had predicted the southbound train.",
+      "The programmer changed one line, reran the test, and discovered that the earlier failure had moved to a different module.",
+      "When Elena returned to the kitchen, the kettle was quiet, the window was open, and the cup she had left on the table was gone."
+    ],
+    "selection": [
+      "The small brass key was hidden beneath the blue notebook, and Mara checked the desk twice before leaving.",
+      "After the rain stopped, the children returned to the courtyard and found their chalk drawings still visible.",
+      "Jonas told the mechanic that the engine clicked only after the car had been running for several minutes."
+    ]
+  },
+  "d_head": 64,
+  "d_model": 768,
+  "gate": "gpt2_real_head_shadow",
+  "head_index": 0,
+  "held_out": {
+    "best_held_out_method": "rytmi_window",
+    "coordinate_control": {
+      "direction_minus_raw_cosine": 0.0690849765319865,
+      "raw_minus_direction_relative_rmse": 4.695025105255906,
+      "same_information": true,
+      "same_stored_fast_slow_traces": true
+    },
+    "methods": {
+      "decay": {
+        "max_abs_error": 19.3501980183222,
+        "mean_cosine_similarity": 0.1709766707274957,
+        "relative_rmse": 6.463722048818988
+      },
+      "resonant": {
+        "max_abs_error": 7.285239337042674,
+        "mean_cosine_similarity": 0.18877317503706997,
+        "relative_rmse": 2.4242373438756686
+      },
+      "rytmi_raw_fast_slow": {
+        "max_abs_error": 20.300800742857636,
+        "mean_cosine_similarity": 0.16863343800093566,
+        "per_context": [
+          {"max_abs_error": 14.78688636177669, "mean_cosine_similarity": 0.08179212047696569, "relative_rmse": 6.266778774450543, "text": "The museum closed at six, but the guide stayed behind to answer questions about the old navigation instruments.", "token_count": 20},
+          {"max_abs_error": 15.610060026205252, "mean_cosine_similarity": 0.1332851120646399, "relative_rmse": 6.111311242295288, "text": "On Tuesday, Lina mailed the red envelope to her brother and kept the green one for the meeting on Friday.", "token_count": 23},
+          {"max_abs_error": 15.145967191438293, "mean_cosine_similarity": 0.26024378868410847, "relative_rmse": 6.952800880703304, "text": "The dog ignored the empty bowl until someone opened the cupboard where its food was stored.", "token_count": 18},
+          {"max_abs_error": 17.693476343358277, "mean_cosine_similarity": 0.07968666516497981, "relative_rmse": 6.736910960314714, "text": "At the station, the northbound train arrived first, even though the display had predicted the southbound train.", "token_count": 22},
+          {"max_abs_error": 18.999467278069798, "mean_cosine_similarity": 0.16984440604189113, "relative_rmse": 6.66541059567761, "text": "The programmer changed one line, reran the test, and discovered that the earlier failure had moved to a different module.", "token_count": 24},
+          {"max_abs_error": 20.300800742857636, "mean_cosine_similarity": 0.2661719657293905, "relative_rmse": 6.63586876598188, "text": "When Elena returned to the kitchen, the kettle was quiet, the window was open, and the cup she had left on the table was gone.", "token_count": 29}
+        ],
+        "relative_rmse": 6.5545560883860015
+      },
+      "rytmi_slow_only": {
+        "max_abs_error": 30.341786537805262,
+        "mean_cosine_similarity": 0.16156587411201595,
+        "relative_rmse": 9.443948750365779
+      },
+      "rytmi_window": {
+        "max_abs_error": 6.221048719085702,
+        "mean_cosine_similarity": 0.23771841453292217,
+        "per_context": [
+          {"max_abs_error": 5.166977237305079, "mean_cosine_similarity": 0.19035190442623512, "relative_rmse": 1.8884488456493576, "text": "The museum closed at six, but the guide stayed behind to answer questions about the old navigation instruments.", "token_count": 20},
+          {"max_abs_error": 5.296363790233177, "mean_cosine_similarity": 0.19623299390188564, "relative_rmse": 1.789816887989633, "text": "On Tuesday, Lina mailed the red envelope to her brother and kept the green one for the meeting on Friday.", "token_count": 23},
+          {"max_abs_error": 5.2452673230917854, "mean_cosine_similarity": 0.32199153440329453, "relative_rmse": 2.032329651281741, "text": "The dog ignored the empty bowl until someone opened the cupboard where its food was stored.", "token_count": 18},
+          {"max_abs_error": 5.818447727585024, "mean_cosine_similarity": 0.16397292623746212, "relative_rmse": 1.9755778426170238, "text": "At the station, the northbound train arrived first, even though the display had predicted the southbound train.", "token_count": 22},
+          {"max_abs_error": 6.221048719085702, "mean_cosine_similarity": 0.25298293751999906, "relative_rmse": 1.8753895300236574, "text": "The programmer changed one line, reran the test, and discovered that the earlier failure had moved to a different module.", "token_count": 24},
+          {"max_abs_error": 5.529900248550402, "mean_cosine_similarity": 0.294291894180893, "relative_rmse": 1.721682619619732, "text": "When Elena returned to the kitchen, the kettle was quiet, the window was open, and the cup she had left on the table was gone.", "token_count": 29}
+        ],
+        "relative_rmse": 1.8595309831300948
+      },
+      "static": {
+        "max_abs_error": 19.13436268753968,
+        "mean_cosine_similarity": 0.19024416407697392,
+        "relative_rmse": 4.650616745409926
+      }
+    }
+  },
+  "layer_index": 5,
+  "model_id": "openai-community/gpt2",
+  "model_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "runtime": {
+    "model_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "tokenizer_class": "GPT2TokenizerFast",
+    "tokenizer_name": "openai-community/gpt2",
+    "torch_version": "2.14.0+cu130",
+    "transformers_version": "4.57.6"
+  },
+  "selection": {
+    "rytmi_selection_metric": "relative_rmse",
+    "selected_decay_config": [0.0, 0.25, 0.5, 0.65, 0.75, 0.82, 0.88, 0.92],
+    "selected_resonant_config": [[0.9, 0.5], [0.94, 1.0], [0.97, 1.5], [0.985, 2.0]],
+    "selected_rytmi_window_config": [[0.0, 0.5], [0.25, 0.75], [0.5, 0.875], [0.75, 0.96875]]
+  },
+  "source_artifact": {
+    "artifact_id": 10817671674,
+    "artifact_name": "gpt2-raw-fast-slow-control",
+    "artifact_sha256": "0bbff02514f0dbb3ecd5c7ad89bede3384c49f1b25c1555ee0835ba9420e4c32",
+    "note": "Full raw receipt includes per-token metrics; this frozen repository receipt preserves all inputs, selection, aggregate metrics, and the direction-vs-raw per-context control.",
+    "workflow_run_id": 36022357602
+  },
+  "state_budget": 6144
+}

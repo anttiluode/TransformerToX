@@ -1,0 +1,267 @@
+{
+  "adapter_parity": {
+    "classification": "PASS",
+    "max_attention_abs_error": 5.294016293122539e-07,
+    "max_full_module_abs_error": 4.459798224054623e-06,
+    "max_mixture_abs_error": 1.5129571953043097e-06,
+    "tolerance": 1e-05
+  },
+  "boundary": {
+    "changes_generation": false,
+    "measures_perplexity": false,
+    "removes_kv_cache": false,
+    "replaces_live_attention": false
+  },
+  "budgets": {
+    "hybrid": 6023,
+    "kv_window_full": 6144
+  },
+  "classification": "PASS_RESIDUE_BEATS_EQUAL_BUDGET_WINDOW",
+  "contexts": {
+    "held_out": [
+      "The night train from Vienna was delayed for three hours at the border, and the passengers in carriage seven began to talk to each other out of boredom. There was a violinist named Petra Novak travelling with an instrument case she would not let anyone touch. There was a retired judge who complained about the heating, and a young engineer called Marek who was going home for his father's funeral. Petra said the violin had belonged to her teacher, who had died in the spring and left it to her in a letter written on the back of a concert programme. The judge asked whether the letter would stand up in court. Marek said nothing for a long time. Around two in the morning the conductor came through and told them the delay was caused by a missing document for a crate in the freight wagon. Nobody paid much attention. At dawn the train finally moved, and the judge fell asleep. Marek asked Petra quietly what the concert programme on the back of the letter had been. She said it was the last concert her teacher ever gave, in a small church near the border, and that the programme listed a piece nobody had heard of. Marek looked out of the window at the station they were leaving. It was the same village.",
+      "When the bakery on Mill Street changed owners, the regular customers were suspicious of everything. The new owner, a tall woman named Ines Carvalho, kept the old sign and the old ovens, but she changed the bread. The rye was darker and the rolls were smaller. Mr. Abbott, who had bought two rolls every morning for twenty years, announced that he would never come back, and then came back the next day to tell her so again. Ines listened to him and gave him a roll for free. The following week she found an old notebook behind the flour sacks. It belonged to the previous owner, Walter, and it was full of recipes written in pencil, with notes in the margins about which customers liked what. On one page Walter had written that Mr. Abbott could not taste salt anymore and liked his rolls with extra butter brushed on top, but that he must never be told. Ines read the page twice. The next morning, when Mr. Abbott came in to complain, she handed him two rolls brushed with butter. He took a bite, stopped talking, and stood very still in the doorway. Then he paid for the rolls, which he had never done without an argument, and walked out without saying a word about the bread.",
+      "The expedition reached the glacier on the sixth day, a week behind schedule. Dr. Kaur, the leader, had planned to drill three ice cores near the northern edge, but the northern edge had moved. The maps were from twelve years earlier, and the ice had retreated almost a kilometre since then. The team argued about whether to drill at the old coordinates, which were now bare rock, or at the new edge, where the ice was thinner and younger. Sato, the youngest member, pointed out that the funding agency only cared about the coordinates in the proposal. Kaur said that drilling rock would tell them nothing. They drilled at the new edge. The first core came up cloudy, full of trapped dust. The second core was clear. The third core, taken closest to the old coordinates, contained a thin dark band about two metres down. Under the microscope the band turned out to be ash. Sato checked the dates in the proposal and then checked them again. The only eruption that matched was the one the old maps had been drawn to study, the one the expedition had originally been funded to find. They had found it by abandoning the plan that had been written to find it. Kaur laughed for the first time in six days.",
+      "For most of the season the football club in Hartwell lost every match, and the local paper stopped sending a reporter. The coach, Danny Muir, had played for the club himself thirty years earlier, in the only year it had ever won the county cup. He kept a photograph of that team in his office, and every Saturday he looked at it before the players arrived. In November a new goalkeeper joined the club, a student called Femi who had never played in goal before. He had volunteered because nobody else would. In his first match he let in five goals, and in his second he let in four. Muir did not replace him. He spent the evenings in the car park kicking balls at Femi until it was too dark to see. By February the club was losing by one goal instead of five. In March they drew. In April they won their first match in two years, and the paper sent a photographer. The photograph on the front page showed Femi holding the ball above his head. Muir cut it out and pinned it in his office next to the old team photograph. Visitors noticed that the goalkeeper in the old photograph was a younger Danny Muir, holding the ball in exactly the same way.",
+      "The archive had lost power twice that week, and the head archivist, Mrs. Oyelaran, was worried about the humidity. The documents in the basement were letters from the eighteen-nineties, written by a shipping clerk named Albert Crane to his sister in Glasgow. For most of a century nobody had read them. A graduate student, Theo, had been cataloguing them since September. Crane wrote about cargo, weather, and the prices of coal. He complained about his employer and about the food at his boarding house. Theo found the letters dull until he reached the winter of eighteen ninety-four, when Crane began to mention a ship that was not on any official list. He called it only the grey ship, and he wrote that its cargo was recorded under false names. In his final letter Crane told his sister he had copied the real manifest and hidden it where the company would never think to look. After that there were no more letters. Theo searched the archive for weeks. On the day the power failed for the third time, he sat in the dark with a torch and reread the first letter in the collection, the one about the boarding house. On the back, in pencil, someone had drawn a small grey ship."
+    ],
+    "selection": [
+      "Harriet Vale kept the lighthouse on Corran Point for eleven years before the harbour board decided to automate it. In the first week of that last winter she wrote everything down: the colour of the sea at dawn, the number of gulls on the rail, the name of every boat that passed the headland. Most of the boats she knew. The Marigold went out at five with Tomas Reyes at the wheel, and it came back at noon with its hold full of mackerel. The Saint Brigid belonged to the Duffy brothers, who argued so loudly that she could hear them from the gallery. On the ninth day a boat she did not recognise anchored below the cliffs. It had no name painted on the bow, only a white number, and nobody came up on deck for two days. Harriet watched it through the brass telescope her father had left her. When the harbour master finally rowed out to ask questions, the boat was already gone, and the only thing floating where it had been was a wooden crate stamped with the same white number. Harriet wrote that number in her book three times, underlined it, and then went back to counting gulls.",
+      "The committee met in the old library because the new building still had no heating. Professor Anand opened the meeting by reading the minutes from March, which nobody had approved, and then asked whether anyone objected to approving them now. Dr. Whitfield objected, as she always did, on the grounds that the March minutes recorded a vote that had never actually been taken. The vote concerned the budget for the telescope on the roof, which had been broken since the autumn storm. Anand said that the vote had been taken by email, and Whitfield said that an email was not a meeting. The treasurer, a quiet man named Okafor, tried to explain that the money had already been spent, but nobody listened to him. For forty minutes the committee argued about the procedure while the rain came through a crack above the history shelves. By the time they voted, three members had left, the quorum was gone, and the vote could not count. Okafor wrote a short note to himself in the margin of his agenda. It said only that the telescope had been repaired in January, paid for from his own pocket, and that nobody on the committee had ever climbed the stairs to look.",
+      "Every summer the Lindqvist family drove north to the cabin by the lake, and every summer the same things went wrong. The car overheated near the bridge at Kallby. The key to the boathouse was missing until someone found it in the pocket of a coat that had hung by the door since the previous August. The water pump made a noise like an animal in pain. This year the youngest daughter, Saga, was nine, and she had decided to keep a list. She wrote down the overheating, the key, the pump, and the wasp nest under the porch. She wrote down that her grandfather told the same story about the pike he had caught in nineteen seventy-one, and that the pike grew longer every time he told it. On the fourth evening a storm came across the lake and the power failed. They ate by candlelight and played cards, and her grandfather told the pike story again. Saga checked her list. The pike had been sixty centimetres on the first night and was now almost a metre. She did not say anything. She only added a new line at the bottom of the page, under the wasps: the fish is still growing."
+    ]
+  },
+  "d_head": 64,
+  "d_model": 768,
+  "frozen": {
+    "far_start": 48,
+    "full_window": 48,
+    "hybrid_window": 40,
+    "rytmi_pairs": [
+      [
+        0.0,
+        0.5
+      ],
+      [
+        0.25,
+        0.75
+      ],
+      [
+        0.5,
+        0.875
+      ],
+      [
+        0.75,
+        0.96875
+      ]
+    ],
+    "tau_ladders": [
+      [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      [
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      [
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512
+      ]
+    ]
+  },
+  "gate": "gpt2_window_residue",
+  "head_index": 0,
+  "held_out": {
+    "methods": {
+      "kv_window_full": {
+        "all": {
+          "mean_cosine_similarity": 0.6665326675531823,
+          "relative_rmse": 1.2191954811367829,
+          "tokens": 1254
+        },
+        "far": {
+          "mean_cosine_similarity": 0.5876054882758289,
+          "relative_rmse": 1.3375095746668695,
+          "tokens": 1014
+        },
+        "per_context_far_relative_rmse": [
+          1.334502251558319,
+          1.3673188732325092,
+          1.2204236894445897,
+          1.2789189033724047,
+          1.5118886881906997
+        ]
+      },
+      "kv_window_hybrid_only": {
+        "all": {
+          "mean_cosine_similarity": 0.6366327507951157,
+          "relative_rmse": 1.2852772211456773,
+          "tokens": 1254
+        },
+        "far": {
+          "mean_cosine_similarity": 0.5758726006711253,
+          "relative_rmse": 1.3740777788177923,
+          "tokens": 1014
+        },
+        "per_context_far_relative_rmse": [
+          1.371366595882092,
+          1.403857588537526,
+          1.2453520792228363,
+          1.3172332597685814,
+          1.558991838782715
+        ]
+      },
+      "rytmi_resident_pr3": {
+        "all": {
+          "mean_cosine_similarity": 0.29517460362630615,
+          "relative_rmse": 1.647208469969238,
+          "tokens": 1254
+        },
+        "far": {
+          "mean_cosine_similarity": 0.32312350901175835,
+          "relative_rmse": 1.5726251298826988,
+          "tokens": 1014
+        },
+        "per_context_far_relative_rmse": [
+          1.5444314915147583,
+          1.5737532187006253,
+          1.5134291842928795,
+          1.5660242234849786,
+          1.6844711464239857
+        ]
+      },
+      "window_residue_band": {
+        "all": {
+          "mean_cosine_similarity": 0.6481730835620845,
+          "relative_rmse": 1.1475362689514406,
+          "tokens": 1254
+        },
+        "far": {
+          "mean_cosine_similarity": 0.5849820451372845,
+          "relative_rmse": 1.2295861073721346,
+          "tokens": 1014
+        },
+        "per_context_far_relative_rmse": [
+          1.249175898023493,
+          1.2436373848289506,
+          1.1105406783066727,
+          1.1600947551631189,
+          1.4089770067274905
+        ]
+      },
+      "window_residue_lowpass": {
+        "all": {
+          "mean_cosine_similarity": 0.6337069095871857,
+          "relative_rmse": 1.0889298145514867,
+          "tokens": 1254
+        },
+        "far": {
+          "mean_cosine_similarity": 0.5693590169196094,
+          "relative_rmse": 1.1598058755585778,
+          "tokens": 1014
+        },
+        "per_context_far_relative_rmse": [
+          1.2189633646988955,
+          1.1600893640104686,
+          1.048061405365901,
+          1.0745409111803859,
+          1.318746781408921
+        ]
+      },
+      "zero": {
+        "all": {
+          "mean_cosine_similarity": 0.0,
+          "relative_rmse": 1.0,
+          "tokens": 1254
+        },
+        "far": {
+          "mean_cosine_similarity": 0.0,
+          "relative_rmse": 1.0,
+          "tokens": 1014
+        },
+        "per_context_far_relative_rmse": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "questions": {
+      "band_beats_lowpass_same_state": {
+        "context_wins": 0,
+        "pass": false
+      },
+      "primary_band_beats_equal_budget_window": {
+        "band_far": 1.2295861073721346,
+        "context_wins": 5,
+        "contexts": 5,
+        "pass": true,
+        "window_full_far": 1.3375095746668695
+      },
+      "residue_adds_over_its_own_window": {
+        "context_wins": 5,
+        "pass": true
+      }
+    }
+  },
+  "layer_index": 5,
+  "long_token_counts": [
+    236,
+    240,
+    246,
+    249,
+    255,
+    253,
+    248,
+    249
+  ],
+  "model_id": "openai-community/gpt2",
+  "model_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "runtime": {
+    "model_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "tokenizer_class": "GPT2TokenizerFast",
+    "tokenizer_name": "openai-community/gpt2",
+    "torch_version": "2.7.1+cu118",
+    "transformers_version": "4.57.6"
+  },
+  "selection": {
+    "selected_taus": [
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ],
+    "selection_far_relative_rmse": [
+      1.2939341831468212,
+      1.2807465261228894,
+      1.2740646083669176
+    ]
+  },
+  "short_context_check": {
+    "kv_window_full_relative_rmse": 3.3696714734255944e-16,
+    "max_token_count": 29,
+    "note": "equal-budget KV window on the original one-sentence held-out contexts"
+  },
+  "state_budget": 6144
+}

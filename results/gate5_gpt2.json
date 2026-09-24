@@ -1,0 +1,484 @@
+{
+  "boundary": {
+    "all_heads_all_layers_replaced": true,
+    "merge_is_our_implementation_not_CaM_or_D2O": true,
+    "teacher_forced_only": true
+  },
+  "classification": "FAIL_LOWPASS_LOSES_TO_A_STRONGER_BASELINE_AT_B48",
+  "frozen": {
+    "chunk": 1024,
+    "far_start": 48,
+    "max_chunks_per_text": 6,
+    "rows": {
+      "b128_h2o": "PolicySpec(policy='h2o', slots=128, recent=None)",
+      "b128_lowpass": "MemorySpec(window=119, sink=1, rhos=(0.875, 0.9375, 0.96875, 0.984375, 0.9921875, 0.99609375, 0.998046875), read_mode='lowpass')",
+      "b128_merge": "PolicySpec(policy='merge', slots=127, recent=None)",
+      "b128_sink_window": "MemorySpec(window=127, sink=1, rhos=(), read_mode='lowpass')",
+      "b48_h2o": "PolicySpec(policy='h2o', slots=48, recent=None)",
+      "b48_lowpass": "MemorySpec(window=39, sink=1, rhos=(0.875, 0.9375, 0.96875, 0.984375, 0.9921875, 0.99609375, 0.998046875), read_mode='lowpass')",
+      "b48_merge": "PolicySpec(policy='merge', slots=47, recent=None)",
+      "b48_sink_window": "MemorySpec(window=47, sink=1, rhos=(), read_mode='lowpass')",
+      "full_cache": "MemorySpec(window=None, sink=0, rhos=(), read_mode='lowpass')"
+    },
+    "taus": [
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ]
+  },
+  "gate": "gate5_robustness",
+  "model_key": "gpt2",
+  "parity": {
+    "classification": "PASS",
+    "max_logit_abs_error": 0.002657404017384124,
+    "mean_nll_abs_error": 4.023984141454662e-07,
+    "tolerances": [
+      0.1,
+      0.001
+    ]
+  },
+  "questions": {
+    "b128_lowpass_vs_h2o": {
+      "baseline_perplexity": 74.84560070017743,
+      "chunk_wins": 15,
+      "chunks": 15,
+      "fraction_of_baseline_gap_closed": 0.7181247382187059,
+      "pass": true,
+      "perplexity": 46.36659614374429,
+      "text_wins": {
+        "python313_docs": true,
+        "shakespeare": true,
+        "unseen_stories": true
+      }
+    },
+    "b128_lowpass_vs_merge": {
+      "baseline_perplexity": 46.18493976465943,
+      "chunk_wins": 7,
+      "chunks": 15,
+      "fraction_of_baseline_gap_closed": -0.021330903741771667,
+      "pass": false,
+      "perplexity": 46.36659614374429,
+      "text_wins": {
+        "python313_docs": false,
+        "shakespeare": true,
+        "unseen_stories": false
+      }
+    },
+    "b128_lowpass_vs_sink_window": {
+      "baseline_perplexity": 54.08893593007468,
+      "chunk_wins": 15,
+      "chunks": 15,
+      "fraction_of_baseline_gap_closed": 0.45043207769979576,
+      "pass": true,
+      "perplexity": 46.36659614374429,
+      "text_wins": {
+        "python313_docs": true,
+        "shakespeare": true,
+        "unseen_stories": true
+      }
+    },
+    "b48_lowpass_vs_h2o": {
+      "baseline_perplexity": 116.02131668669759,
+      "chunk_wins": 15,
+      "chunks": 15,
+      "fraction_of_baseline_gap_closed": 0.5137863117004988,
+      "pass": true,
+      "perplexity": 65.75679252605065,
+      "text_wins": {
+        "python313_docs": true,
+        "shakespeare": true,
+        "unseen_stories": true
+      }
+    },
+    "b48_lowpass_vs_merge": {
+      "baseline_perplexity": 63.854397738810114,
+      "chunk_wins": 7,
+      "chunks": 15,
+      "fraction_of_baseline_gap_closed": -0.057792487293992625,
+      "pass": false,
+      "perplexity": 65.75679252605065,
+      "text_wins": {
+        "python313_docs": false,
+        "shakespeare": true,
+        "unseen_stories": false
+      }
+    },
+    "b48_lowpass_vs_sink_window": {
+      "baseline_perplexity": 88.0981198425427,
+      "chunk_wins": 15,
+      "chunks": 15,
+      "fraction_of_baseline_gap_closed": 0.3524687833165473,
+      "pass": true,
+      "perplexity": 65.75679252605065,
+      "text_wins": {
+        "python313_docs": true,
+        "shakespeare": true,
+        "unseen_stories": true
+      }
+    }
+  },
+  "rows": {
+    "b128_h2o": {
+      "per_text": {
+        "python313_docs": {
+          "far_perplexity": 56.50497958508212,
+          "per_chunk_far_nll": [
+            3.9710645923265258,
+            3.5599253663378914,
+            4.102503176712546,
+            4.10426332961487,
+            4.206613083384182,
+            4.26160306273223
+          ]
+        },
+        "shakespeare": {
+          "far_perplexity": 113.73063177589077,
+          "per_chunk_far_nll": [
+            4.983331425869872,
+            4.7975527359370425,
+            4.886439029624432,
+            4.820723245970661,
+            4.729710597414947,
+            4.18523960457145
+          ]
+        },
+        "unseen_stories": {
+          "far_perplexity": 56.87259483656765,
+          "per_chunk_far_nll": [
+            4.052857710355487,
+            4.089518170070775,
+            3.9800648829410528
+          ]
+        }
+      },
+      "pooled_far_nll": 4.315427334257597,
+      "pooled_far_perplexity": 74.84560070017743,
+      "scalar_budget_per_head": 16384
+    },
+    "b128_lowpass": {
+      "per_text": {
+        "python313_docs": {
+          "far_perplexity": 35.952988722778734,
+          "per_chunk_far_nll": [
+            3.7296087721399642,
+            3.1750098080905964,
+            3.66634491466905,
+            3.411923286429558,
+            3.705886442197084,
+            3.8045000740019903
+          ]
+        },
+        "shakespeare": {
+          "far_perplexity": 69.39634107739727,
+          "per_chunk_far_nll": [
+            4.315603524060716,
+            4.416211195600865,
+            4.52862984483115,
+            4.336748510689496,
+            4.309621876122606,
+            3.5321899120662934
+          ]
+        },
+        "unseen_stories": {
+          "far_perplexity": 34.42571196696701,
+          "per_chunk_far_nll": [
+            3.585422258129089,
+            3.5381826890426016,
+            3.4928062310824672
+          ]
+        }
+      },
+      "pooled_far_nll": 3.836579289276902,
+      "pooled_far_perplexity": 46.36659614374429,
+      "scalar_budget_per_head": 16263
+    },
+    "b128_merge": {
+      "per_text": {
+        "python313_docs": {
+          "far_perplexity": 32.17537394215761,
+          "per_chunk_far_nll": [
+            3.459693523268193,
+            3.0102754550252455,
+            3.617412005676734,
+            3.3355369606900855,
+            3.684031122959104,
+            3.720259185671844
+          ]
+        },
+        "shakespeare": {
+          "far_perplexity": 77.51998190514982,
+          "per_chunk_far_nll": [
+            4.325874416756743,
+            4.556517719585014,
+            4.631067814290416,
+            4.381509024492124,
+            4.42935541283344,
+            3.7788900170069657
+          ]
+        },
+        "unseen_stories": {
+          "far_perplexity": 33.77749018272343,
+          "per_chunk_far_nll": [
+            3.5450805840578985,
+            3.5469195253571897,
+            3.467383719704378
+          ]
+        }
+      },
+      "pooled_far_nll": 3.832653765825025,
+      "pooled_far_perplexity": 46.18493976465943,
+      "scalar_budget_per_head": 16383
+    },
+    "b128_sink_window": {
+      "per_text": {
+        "python313_docs": {
+          "far_perplexity": 41.26125087435821,
+          "per_chunk_far_nll": [
+            3.8960770118565846,
+            3.336811717858132,
+            3.766625378064737,
+            3.5714788511403115,
+            3.853518803696905,
+            3.8950311817486
+          ]
+        },
+        "shakespeare": {
+          "far_perplexity": 78.61060647001464,
+          "per_chunk_far_nll": [
+            4.5283709795757305,
+            4.439995438531836,
+            4.638400616369945,
+            4.397611040400251,
+            4.458030046973997,
+            3.724631674335386
+          ]
+        },
+        "unseen_stories": {
+          "far_perplexity": 44.004299888128934,
+          "per_chunk_far_nll": [
+            3.8411161335185255,
+            3.762285129141515,
+            3.7494607989611017
+          ]
+        }
+      },
+      "pooled_far_nll": 3.9906296534782375,
+      "pooled_far_perplexity": 54.08893593007468,
+      "scalar_budget_per_head": 16384
+    },
+    "b48_h2o": {
+      "per_text": {
+        "python313_docs": {
+          "far_perplexity": 84.5069954537644,
+          "per_chunk_far_nll": [
+            4.633357635971095,
+            4.030907392701995,
+            4.418259765541441,
+            4.407039219123383,
+            4.741549567487531,
+            4.389892323404168
+          ]
+        },
+        "shakespeare": {
+          "far_perplexity": 198.80538502910449,
+          "per_chunk_far_nll": [
+            5.164637512694684,
+            5.2568933188139,
+            5.516353849869534,
+            5.381784645790339,
+            5.552551963682621,
+            4.881736998311888
+          ]
+        },
+        "unseen_stories": {
+          "far_perplexity": 74.48131555593912,
+          "per_chunk_far_nll": [
+            4.339693071079501,
+            4.244064508111234,
+            4.347887308880074
+          ]
+        }
+      },
+      "pooled_far_nll": 4.753773938764226,
+      "pooled_far_perplexity": 116.02131668669759,
+      "scalar_budget_per_head": 6144
+    },
+    "b48_lowpass": {
+      "per_text": {
+        "python313_docs": {
+          "far_perplexity": 55.3199048721408,
+          "per_chunk_far_nll": [
+            4.203924008092353,
+            3.9508659163214377,
+            3.817748842817719,
+            3.7038519326339054,
+            4.135790237374863,
+            4.266615785974967
+          ]
+        },
+        "shakespeare": {
+          "far_perplexity": 97.31545529690932,
+          "per_chunk_far_nll": [
+            4.659367648443101,
+            4.808494894466624,
+            4.739816988741856,
+            4.647350637627959,
+            4.625244808068386,
+            3.9874719322889227
+          ]
+        },
+        "unseen_stories": {
+          "far_perplexity": 42.42058160031765,
+          "per_chunk_far_nll": [
+            3.746690675737224,
+            3.779895525242565,
+            3.7163147777120464
+          ]
+        }
+      },
+      "pooled_far_nll": 4.185962974102929,
+      "pooled_far_perplexity": 65.75679252605065,
+      "scalar_budget_per_head": 6023
+    },
+    "b48_merge": {
+      "per_text": {
+        "python313_docs": {
+          "far_perplexity": 51.640696818586285,
+          "per_chunk_far_nll": [
+            4.283604954547532,
+            3.608587461571835,
+            3.9672961155295994,
+            3.7784290210992726,
+            4.067719079720476,
+            3.960223725510955
+          ]
+        },
+        "shakespeare": {
+          "far_perplexity": 97.48561092464546,
+          "per_chunk_far_nll": [
+            4.509935828516831,
+            4.644438635884808,
+            4.830957028603327,
+            4.755404688634223,
+            4.623264035123442,
+            4.1142285043536715
+          ]
+        },
+        "unseen_stories": {
+          "far_perplexity": 41.88792452879629,
+          "per_chunk_far_nll": [
+            3.7669133947894413,
+            3.7564189008909756,
+            3.6816604682830123
+          ]
+        }
+      },
+      "pooled_far_nll": 4.15660545620396,
+      "pooled_far_perplexity": 63.854397738810114,
+      "scalar_budget_per_head": 6063
+    },
+    "b48_sink_window": {
+      "per_text": {
+        "python313_docs": {
+          "far_perplexity": 72.4853130775564,
+          "per_chunk_far_nll": [
+            4.504670665083196,
+            4.123204224830918,
+            4.067042882860384,
+            4.0520917877918485,
+            4.449677572561335,
+            4.503616645462022
+          ]
+        },
+        "shakespeare": {
+          "far_perplexity": 126.16359729289097,
+          "per_chunk_far_nll": [
+            4.9418051091523205,
+            4.9478942284522915,
+            5.071315328020435,
+            4.823533779336391,
+            4.860842183765257,
+            4.380086107176917
+          ]
+        },
+        "unseen_stories": {
+          "far_perplexity": 63.454881102820856,
+          "per_chunk_far_nll": [
+            4.209893344857515,
+            4.117577557668143,
+            4.123516456082384
+          ]
+        }
+      },
+      "pooled_far_nll": 4.478451191540091,
+      "pooled_far_perplexity": 88.0981198425427,
+      "scalar_budget_per_head": 6144
+    },
+    "full_cache": {
+      "per_text": {
+        "python313_docs": {
+          "far_perplexity": 24.699348422288264,
+          "per_chunk_far_nll": [
+            3.190946632067022,
+            2.8893271801532636,
+            3.3732103203590547,
+            2.9846620055383615,
+            3.474540135662884,
+            3.3279749079486507
+          ]
+        },
+        "shakespeare": {
+          "far_perplexity": 67.36942649181715,
+          "per_chunk_far_nll": [
+            4.267245739708658,
+            4.368189580832342,
+            4.453835720743274,
+            4.4035044937728856,
+            4.1485830181417125,
+            3.6197892595437113
+          ]
+        },
+        "unseen_stories": {
+          "far_perplexity": 30.240532051597985,
+          "per_chunk_far_nll": [
+            3.4417870000452453,
+            3.418158542723305,
+            3.367603893597739
+          ]
+        }
+      },
+      "pooled_far_nll": 3.6486238953892074,
+      "pooled_far_perplexity": 38.421757296022115,
+      "scalar_budget_per_head": null
+    }
+  },
+  "runtime": {
+    "architecture": "GPT2LMHeadModel",
+    "model_id": "openai-community/gpt2",
+    "requested_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "resolved_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "torch_version": "2.7.1+cu118",
+    "transformers_version": "4.57.6"
+  },
+  "texts": {
+    "python313_docs": {
+      "chunks": 6,
+      "file": "python313_whatsnew_excerpt.txt",
+      "sha256": "2257dd709e98b75987eeccaf23be0ee661edd3c9e7e439ef6dcd85eef628bca3"
+    },
+    "shakespeare": {
+      "chunks": 6,
+      "file": "tinyshakespeare_head.txt",
+      "sha256": "3f0590676115fc4d4c2edd6466f021f46b5bf5d4acd77cb63fdcc338ac3cacef"
+    },
+    "unseen_stories": {
+      "chunks": 3,
+      "file": "unseen_stories.txt",
+      "sha256": "ec84a62ca314655cd195f6b40600093b137168df315a1979d057de5d74b22de1"
+    }
+  }
+}

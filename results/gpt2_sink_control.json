@@ -1,0 +1,382 @@
+{
+  "adapter_parity": {
+    "classification": "PASS",
+    "max_attention_abs_error": 5.813628927153758e-07,
+    "max_full_module_abs_error": 4.459798224054623e-06,
+    "max_mixture_abs_error": 1.4101259402377053e-06,
+    "tolerance": 1e-05
+  },
+  "boundary": {
+    "changes_generation": false,
+    "measures_perplexity": false,
+    "removes_kv_cache": false,
+    "replaces_live_attention": false
+  },
+  "budgets": {
+    "kv_window_full": 6144,
+    "nosink_hybrid_band": 6023,
+    "nosink_hybrid_lowpass": 6023,
+    "sink_hybrid_band": 6023,
+    "sink_hybrid_lowpass": 6023,
+    "sink_window_full": 6144,
+    "sink_window_hybrid_only": 6023,
+    "zero": 0
+  },
+  "classification": "PASS_TEMPORAL_SUMMARY_BEATS_SINK_WINDOW_AND_ZERO",
+  "d_head": 64,
+  "d_model": 768,
+  "fresh": {
+    "head_diagnostics": {
+      "mean_attention_first4": 0.6188916451698876,
+      "mean_attention_token0": 0.6155368546919459,
+      "mean_mass_dropped_by_window_elsewhere": 0.1834942900251568,
+      "mean_mass_dropped_by_window_on_first4": 0.6188620608358606,
+      "mean_output_norm_without_token0_over_output_norm": 0.6256670513630475,
+      "mean_token0_term_norm_over_output_norm": 0.6818646182704772,
+      "token0_value_output_norm_over_median_other": 0.3621814088871435
+    },
+    "methods": {
+      "kv_window_full": {
+        "mean_cosine_similarity": 0.5981565961681239,
+        "mean_token_norm_ratio_pred_over_target": 1.7665074715615428,
+        "per_context_relative_rmse": [
+          1.3335326026866767,
+          1.3663480024419046,
+          1.2791559062316493,
+          1.4126081833996362,
+          1.259157755277071
+        ],
+        "relative_rmse": 1.3293644228473382,
+        "rms_norm_ratio_pred_over_target": 1.718423946840199,
+        "tokens": 1011
+      },
+      "nosink_hybrid_band": {
+        "mean_cosine_similarity": 0.5992690926008392,
+        "mean_token_norm_ratio_pred_over_target": 1.6396394550609008,
+        "per_context_relative_rmse": [
+          1.2345749914828963,
+          1.2750927624213855,
+          1.1814107601777322,
+          1.30573293555293,
+          1.1772180101690732
+        ],
+        "relative_rmse": 1.2341568465032084,
+        "rms_norm_ratio_pred_over_target": 1.5972598924728825,
+        "tokens": 1011
+      },
+      "nosink_hybrid_lowpass": {
+        "mean_cosine_similarity": 0.5886579454461486,
+        "mean_token_norm_ratio_pred_over_target": 1.5240107175744113,
+        "per_context_relative_rmse": [
+          1.1645557314450108,
+          1.1862419057824412,
+          1.1218161800887372,
+          1.2101705348891234,
+          1.1036439237115707
+        ],
+        "relative_rmse": 1.156531426506667,
+        "rms_norm_ratio_pred_over_target": 1.475328508855657,
+        "tokens": 1011
+      },
+      "sink_hybrid_band": {
+        "mean_cosine_similarity": 0.9352745322149534,
+        "mean_token_norm_ratio_pred_over_target": 0.9648553777186053,
+        "per_context_relative_rmse": [
+          0.4918576932059319,
+          0.4430945387268773,
+          0.32953544471197016,
+          0.3418772839228262,
+          0.2908544421170834
+        ],
+        "relative_rmse": 0.3858265057079971,
+        "rms_norm_ratio_pred_over_target": 0.9482050771314802,
+        "tokens": 1011
+      },
+      "sink_hybrid_lowpass": {
+        "mean_cosine_similarity": 0.956499466021035,
+        "mean_token_norm_ratio_pred_over_target": 0.937076406540132,
+        "per_context_relative_rmse": [
+          0.4285384357163693,
+          0.3821954245238061,
+          0.2654914964296808,
+          0.29344810034634666,
+          0.246488936732799
+        ],
+        "relative_rmse": 0.32991721149899805,
+        "rms_norm_ratio_pred_over_target": 0.9204676953292114,
+        "tokens": 1011
+      },
+      "sink_window_full": {
+        "mean_cosine_similarity": 0.9241438159914719,
+        "mean_token_norm_ratio_pred_over_target": 0.9908924345165212,
+        "per_context_relative_rmse": [
+          0.5318213100951026,
+          0.39983520950935986,
+          0.37551776399730646,
+          0.38224562743801094,
+          0.3128301596159344
+        ],
+        "relative_rmse": 0.4062082576464276,
+        "rms_norm_ratio_pred_over_target": 0.9758419324953851,
+        "tokens": 1011
+      },
+      "sink_window_hybrid_only": {
+        "mean_cosine_similarity": 0.9074903582034685,
+        "mean_token_norm_ratio_pred_over_target": 0.9929115886269367,
+        "per_context_relative_rmse": [
+          0.5549465882421631,
+          0.5089065394693072,
+          0.4068004601627421,
+          0.40860351942556167,
+          0.34966085073504494
+        ],
+        "relative_rmse": 0.45079811541168213,
+        "rms_norm_ratio_pred_over_target": 0.9744500538871453,
+        "tokens": 1011
+      },
+      "zero": {
+        "mean_cosine_similarity": 0.0,
+        "mean_token_norm_ratio_pred_over_target": 0.0,
+        "per_context_relative_rmse": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "relative_rmse": 1.0,
+        "rms_norm_ratio_pred_over_target": 0.0,
+        "tokens": 1011
+      }
+    },
+    "questions": {
+      "band_vs_lowpass_with_sink": {
+        "band_better": false,
+        "context_wins_band": 0
+      },
+      "primary_lowpass_beats_sink_window_and_zero": {
+        "context_wins_vs_sink_window_full": 5,
+        "context_wins_vs_zero": 5,
+        "contexts": 5,
+        "pass": true,
+        "relative_rmse": 0.32991721149899805,
+        "vs_sink_window_full": 0.4062082576464276
+      },
+      "secondary_band_beats_sink_window_and_zero": {
+        "context_wins_vs_sink_window_full": 4,
+        "context_wins_vs_zero": 5,
+        "contexts": 5,
+        "pass": true,
+        "relative_rmse": 0.3858265057079971,
+        "vs_sink_window_full": 0.4062082576464276
+      },
+      "sink_explains_gate2": {
+        "context_wins": 5,
+        "kv_window_full": 1.3293644228473382,
+        "pass": true,
+        "sink_window_full": 0.4062082576464276
+      }
+    }
+  },
+  "fresh_contexts": [
+    "The orchard at Brekke had been in the family for four generations, and every autumn the same argument started about which trees to cut down. Solveig wanted to keep the old Gravenstein trees near the road because her grandmother had planted them. Her cousin Arne wanted to replace them with a newer variety that resisted the scab. They argued in the kitchen, in the barn, and once, loudly, at a funeral. That year the harvest was poor. A late frost in May had killed most of the blossom, and only the trees on the upper slope produced anything worth selling. Arne counted the crates and said that the upper slope was all new trees, which proved his point. Solveig walked the rows in the evening with a notebook. She wrote down every tree that had fruit. When she compared her list with the planting records in the attic, she found that the upper slope was not new at all. The trees there had been grafted onto old Gravenstein roots forty years earlier, by her grandmother, who had never told anyone. Solveig showed Arne the records at breakfast. He read them twice, put down his coffee, and asked her which branches they should graft next spring.",
+    "The radio station at the edge of town broadcast for only six hours a day, and most of those hours belonged to a man called Desmond Achebe. He read the weather, the fishing reports, the obituaries, and the lost-and-found notices in the same slow, careful voice. People said they could set their clocks by him. In the spring a listener began sending letters to the station. The letters were unsigned, and each one asked Desmond to play a particular song at exactly ten past nine on a Thursday. The songs were old and hard to find. Desmond found them anyway, in the basement archive, on scratched records that had not been played in decades. He played them at ten past nine every Thursday without saying why. After eight weeks the letters stopped. Desmond was worried and mentioned it on air, which he had never done before. The next morning a woman arrived at the station with a box of records. She said her father had written the letters from the care home on the hill, where he listened every night, and that he had died on Wednesday. The records in the box were his. On the top one, in faded ink, someone had written the station's call sign and a date from nineteen sixty-two.",
+    "When the bridge over the Ness river closed for repairs, the ferry that had not run for thirty years was brought back into service. Its captain was a woman named Morag Finlay, who had learned to pilot it as a girl from her uncle. The ferry was slow and smelled of diesel, and at first the commuters complained about everything. They complained about the timetable, the benches, and the seagulls that followed the boat. Morag ignored them. She knew every sandbar in the river and every trick of the tide. By the second month something had changed. The commuters began to talk to each other. A nurse and a baker discovered they had gone to the same school. Two men who had lived on the same street for a decade finally learned each other's names. A retired teacher started bringing a flask of tea to share. When the council announced that the bridge would reopen early, a petition appeared asking for the ferry to continue. The council refused, citing the cost. On the final crossing Morag sounded the horn three times, which her uncle had always done on his last trip of the day. Half the passengers were crying. The next week the nurse and the baker opened a small cafe by the old landing.",
+    "The chess club met on Tuesday evenings in the back room of the public library, and for eleven years its strongest player had been an accountant named Viktor Hale. Nobody had beaten him in a club game since the winter he joined. Then a new member arrived, a thirteen-year-old girl called Amara who came with her grandmother and never said much. She lost her first three games against the weaker players, quickly and without complaint. Viktor paid no attention to her. In her second month she began to win. She beat the librarian, then the retired pilot, then the two brothers who had run the club before Viktor. In June she asked Viktor for a game. He agreed, a little amused, and played the opening he always played. Amara answered with a line he had never seen. It looked like a mistake at first, a pawn left undefended in the centre, but when he took it his position slowly came apart. After two hours he resigned. The room was silent. Amara's grandmother leaned over and said something quietly in another language. Later Viktor asked what she had said. Amara told him that her grandmother had played that exact line against his teacher, in a tournament in Odessa, and had lost.",
+    "The clockmaker's shop on Hollis Lane had been closed for a year when his nephew, Rafael, finally came to empty it. The shelves were covered in dust and the clocks had all stopped, each one at a different time. Rafael had not been close to his uncle, and he planned to sell everything to a dealer by the end of the week. On the first day he found the account books, which were neat and ordinary. On the second day he found a drawer full of letters from customers, thanking his uncle for repairs that had been done for free. On the third day he noticed something odd about the stopped clocks. He wrote down the time on each one and arranged the list in order around the room. The times were not random. Read from the door to the back wall, the hours and minutes formed a sequence of dates, and every date was a birthday in the family, including his own. The last clock, in the back corner, had stopped at a time that matched no birthday he knew. Rafael asked his mother about it that evening. She was quiet for a long while, and then she told him it was the day his uncle had opened the shop, fifty years before, the same day his own father had been born."
+  ],
+  "fresh_token_counts": [
+    249,
+    252,
+    248,
+    250,
+    252
+  ],
+  "frozen": {
+    "far_start": 48,
+    "first_k": 4,
+    "primary_read": "lowpass",
+    "sink": 1,
+    "taus": [
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ]
+  },
+  "gate": "gpt2_sink_control",
+  "gate2_fixture": {
+    "head_diagnostics": {
+      "mean_attention_first4": 0.6242514531540866,
+      "mean_attention_token0": 0.6209972086926255,
+      "mean_mass_dropped_by_window_elsewhere": 0.1878770198546744,
+      "mean_mass_dropped_by_window_on_first4": 0.6241983563879802,
+      "mean_output_norm_without_token0_over_output_norm": 0.6119263184198735,
+      "mean_token0_term_norm_over_output_norm": 0.6868272210356393,
+      "token0_value_output_norm_over_median_other": 0.3637687469693674
+    },
+    "methods": {
+      "kv_window_full": {
+        "mean_cosine_similarity": 0.5876054882758289,
+        "mean_token_norm_ratio_pred_over_target": 1.7829919579171327,
+        "per_context_relative_rmse": [
+          1.334502251558319,
+          1.3673188732325092,
+          1.2204236894445897,
+          1.2789189033724047,
+          1.5118886881906997
+        ],
+        "relative_rmse": 1.3375095746668695,
+        "rms_norm_ratio_pred_over_target": 1.7211442853826322,
+        "tokens": 1014
+      },
+      "nosink_hybrid_band": {
+        "mean_cosine_similarity": 0.5849820451372845,
+        "mean_token_norm_ratio_pred_over_target": 1.6344341001741929,
+        "per_context_relative_rmse": [
+          1.249175898023493,
+          1.2436373848289506,
+          1.1105406783066727,
+          1.1600947551631189,
+          1.4089770067274905
+        ],
+        "relative_rmse": 1.2295861073721346,
+        "rms_norm_ratio_pred_over_target": 1.5790352197479134,
+        "tokens": 1014
+      },
+      "nosink_hybrid_lowpass": {
+        "mean_cosine_similarity": 0.5693590169196094,
+        "mean_token_norm_ratio_pred_over_target": 1.5205969311011285,
+        "per_context_relative_rmse": [
+          1.2189633646988955,
+          1.1600893640104686,
+          1.048061405365901,
+          1.0745409111803859,
+          1.318746781408921
+        ],
+        "relative_rmse": 1.1598058755585778,
+        "rms_norm_ratio_pred_over_target": 1.4598050016289181,
+        "tokens": 1014
+      },
+      "sink_hybrid_band": {
+        "mean_cosine_similarity": 0.9320695409341839,
+        "mean_token_norm_ratio_pred_over_target": 0.9682910757653835,
+        "per_context_relative_rmse": [
+          0.3829734114156845,
+          0.3940116196906331,
+          0.41527318157622983,
+          0.4080985766583431,
+          0.34937337206757396
+        ],
+        "relative_rmse": 0.39258124538157196,
+        "rms_norm_ratio_pred_over_target": 0.9497738831470975,
+        "tokens": 1014
+      },
+      "sink_hybrid_lowpass": {
+        "mean_cosine_similarity": 0.9546771832752927,
+        "mean_token_norm_ratio_pred_over_target": 0.9357395403942008,
+        "per_context_relative_rmse": [
+          0.3282513161718888,
+          0.3282393996731731,
+          0.3602658080145242,
+          0.35571765483380735,
+          0.2865936435874734
+        ],
+        "relative_rmse": 0.33504637973423573,
+        "rms_norm_ratio_pred_over_target": 0.9182574422103859,
+        "tokens": 1014
+      },
+      "sink_window_full": {
+        "mean_cosine_similarity": 0.9230966541416815,
+        "mean_token_norm_ratio_pred_over_target": 0.9974485963359485,
+        "per_context_relative_rmse": [
+          0.394482634132397,
+          0.41689686716062185,
+          0.4453205840463049,
+          0.40071503499328204,
+          0.37671404412609333
+        ],
+        "relative_rmse": 0.4091059739785812,
+        "rms_norm_ratio_pred_over_target": 0.9792137855475036,
+        "tokens": 1014
+      },
+      "sink_window_hybrid_only": {
+        "mean_cosine_similarity": 0.9032966721707744,
+        "mean_token_norm_ratio_pred_over_target": 0.9995831686766452,
+        "per_context_relative_rmse": [
+          0.44866705257694023,
+          0.47306378865889565,
+          0.47439516457185626,
+          0.4645090153520331,
+          0.41937869564528035
+        ],
+        "relative_rmse": 0.45805819131297876,
+        "rms_norm_ratio_pred_over_target": 0.9781636242421278,
+        "tokens": 1014
+      },
+      "zero": {
+        "mean_cosine_similarity": 0.0,
+        "mean_token_norm_ratio_pred_over_target": 0.0,
+        "per_context_relative_rmse": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "relative_rmse": 1.0,
+        "rms_norm_ratio_pred_over_target": 0.0,
+        "tokens": 1014
+      }
+    },
+    "questions": {
+      "band_vs_lowpass_with_sink": {
+        "band_better": false,
+        "context_wins_band": 0
+      },
+      "primary_lowpass_beats_sink_window_and_zero": {
+        "context_wins_vs_sink_window_full": 5,
+        "context_wins_vs_zero": 5,
+        "contexts": 5,
+        "pass": true,
+        "relative_rmse": 0.33504637973423573,
+        "vs_sink_window_full": 0.4091059739785812
+      },
+      "secondary_band_beats_sink_window_and_zero": {
+        "context_wins_vs_sink_window_full": 4,
+        "context_wins_vs_zero": 5,
+        "contexts": 5,
+        "pass": true,
+        "relative_rmse": 0.39258124538157196,
+        "vs_sink_window_full": 0.4091059739785812
+      },
+      "sink_explains_gate2": {
+        "context_wins": 5,
+        "kv_window_full": 1.3375095746668695,
+        "pass": true,
+        "sink_window_full": 0.4091059739785812
+      }
+    }
+  },
+  "gate2_token_counts": [
+    249,
+    255,
+    253,
+    248,
+    249
+  ],
+  "head_index": 0,
+  "layer_index": 5,
+  "model_id": "openai-community/gpt2",
+  "model_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "runtime": {
+    "model_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "tokenizer_class": "GPT2TokenizerFast",
+    "tokenizer_name": "openai-community/gpt2",
+    "torch_version": "2.7.1+cu118",
+    "transformers_version": "4.57.6"
+  }
+}
