@@ -252,55 +252,63 @@ All 144 heads of GPT-2 small run on the bounded memory inside a float64 NumPy GP
 - On 3 of 8 chunks the 12.5% memory scored lower NLL than the full cache. That is a curiosity, not a claim.
 - **Limits:** one text from one contiguous passage (chunks are not independent, and Shakespeare is likely in GPT-2's training data); one small model with learned absolute positions; only sink + window as a baseline; teacher-forced only; no measured memory or speed benefit.
 
-## Gate 5 — stronger baselines, new texts, a rotary-position model
+## Gate 5 — stronger baselines, new texts, three models
 
-Pre-registration: `docs/superpowers/specs/2026-09-24-robustness-gate.md`. Frozen receipts: `results/gate5_gpt2.json` and `results/gate5_pythia160m.json`. Both passed parity against the real Hugging Face forward (max logit error 0.0027 for GPT-2 small, 0.0075 for Pythia-160m).
+Pre-registration: `docs/superpowers/specs/2026-09-24-robustness-gate.md`. Frozen receipts:
 
-Every head in every layer is replaced. Three texts: tinyshakespeare, a *What's New In Python 3.13* excerpt (written after both models' training data), and the 13 repo stories concatenated. That is 15 chunks of 1,024 tokens per model. Metric: pooled far perplexity on positions ≥ 48. Nothing was tuned: every layout, the τ = 8…512 ladder and the budgets are frozen from Gate 4.
+- `results/gate5_gpt2.json`: GPT-2 small (124M), learned absolute positions. Parity max logit error 0.0027.
+- `results/gate5_gpt2medium.json`: GPT-2 medium (355M), learned absolute positions. Revision not pinned in advance; resolved `6dcaa7a9…`. Parity max logit error 0.0065.
+- `results/gate5_pythia160m.json`: Pythia-160m (GPT-NeoX, `step143000`), rotary positions on 25% of each head's dimensions. Parity max logit error 0.0075.
 
-- **GPT-2 small** uses learned absolute positions, added once at the input.
-- **Pythia-160m** (GPT-NeoX, revision `step143000`) uses rotary positions on 25% of each head's dimensions, so its cached keys are rotated by their position.
+All three passed parity against the real Hugging Face forward. Every head in every layer is replaced. Three texts: tinyshakespeare, a *What's New In Python 3.13* excerpt (written after all three models' training data), and the 13 repo stories concatenated. That is 15 chunks of 1,024 tokens per model. Metric: pooled far perplexity on positions ≥ 48. Nothing was tuned: every layout, the τ = 8…512 ladder and the budgets are frozen from Gate 4.
+
+"4.7%" and "12.5%" below are the share of a 1,024-token cache each budget buys (6,144 and 16,384 scalars per head).
 
 ### Pooled far perplexity (lower is better)
 
-| memory per head | scalars | GPT-2, 4.7% | GPT-2, 12.5% | Pythia, 4.7% | Pythia, 12.5% |
-|---|---:|---:|---:|---:|---:|
-| full cache | — | 38.4 | 38.4 | 23.2 | 23.2 |
-| sink1 + window | 6,144 / 16,384 | 88.1 | 54.1 | 39.5 | 29.5 |
-| **sink1 + window + 7 lowpass levels** | 6,023 / 16,263 | 65.8 | 46.4 | **44.1** | **29.8** |
-| H2O (heavy hitters + recent; our online implementation) | 6,144 / 16,384 | 116.0 | 74.8 | 35.2 | **26.4** |
-| merge (H2O layout, victims folded into most-similar slot with a mass; our implementation, CaM/D2O family) | 6,063 / 16,383 | **63.9** | **46.2** | **35.0** | 26.6 |
+| memory per head | GPT-2 small 4.7% | 12.5% | GPT-2 medium 4.7% | 12.5% | Pythia-160m 4.7% | 12.5% |
+|---|---:|---:|---:|---:|---:|---:|
+| full cache | 38.4 | 38.4 | 24.1 | 24.1 | 23.2 | 23.2 |
+| sink1 + window | 88.1 | 54.1 | 237.7 | 207.7 | 39.5 | 29.5 |
+| **sink1 + window + 7 lowpass levels** | 65.8 | 46.4 | 304.2 | 178.8 | 44.1 | 29.8 |
+| H2O (heavy hitters + recent; our online implementation) | 116.0 | 74.8 | 108.7 | 72.7 | 35.2 | **26.4** |
+| merge (H2O layout, victims folded into most-similar slot with a mass; our implementation, CaM/D2O family) | **63.9** | **46.2** | **51.6** | **30.1** | **35.0** | 26.6 |
 
-"4.7%" and "12.5%" are the share of a 1,024-token cache the budget buys.
+Lowpass uses 6,023 / 16,263 scalars, merge 6,063 / 16,383, the others 6,144 / 16,384.
 
 ### Lowpass against each baseline (chunks won out of 15)
 
-| comparison | GPT-2, 4.7% | GPT-2, 12.5% | Pythia, 4.7% | Pythia, 12.5% |
-|---|---:|---:|---:|---:|
-| lowpass vs sink + window | **15/15** | **15/15** | 0/15 | 4/15 |
-| lowpass vs H2O | **15/15** | **15/15** | 0/15 | 2/15 |
-| lowpass vs merge | 7/15 | 7/15 | 0/15 | 2/15 |
+| comparison | GPT-2 small 4.7% | 12.5% | GPT-2 medium 4.7% | 12.5% | Pythia 4.7% | 12.5% |
+|---|---:|---:|---:|---:|---:|---:|
+| lowpass vs sink + window | **15/15** | **15/15** | 0/15 | 13/15 | 0/15 | 4/15 |
+| lowpass vs H2O | **15/15** | **15/15** | 0/15 | 0/15 | 0/15 | 2/15 |
+| lowpass vs merge | 7/15 | 7/15 | 0/15 | 0/15 | 0/15 | 2/15 |
 
 ### Per text at the 4.7% budget
 
 | text | model | full | sink+window | lowpass | merge | H2O |
 |---|---|---:|---:|---:|---:|---:|
-| Shakespeare | GPT-2 | 67.4 | 126.2 | **97.3** | 97.5 | 198.8 |
-| Python 3.13 docs | GPT-2 | 24.7 | 72.5 | 55.3 | **51.6** | 84.5 |
-| unseen stories | GPT-2 | 30.2 | 63.5 | 42.4 | **41.9** | 74.5 |
-| Shakespeare | Pythia | 34.4 | 56.9 | 65.7 | **47.1** | 49.6 |
-| Python 3.13 docs | Pythia | 14.2 | 27.4 | 30.7 | 25.4 | **24.2** |
-| unseen stories | Pythia | 28.3 | 39.6 | 40.9 | **36.6** | 37.4 |
+| Shakespeare | GPT-2 small | 67.4 | 126.2 | **97.3** | 97.5 | 198.8 |
+| Python 3.13 docs | GPT-2 small | 24.7 | 72.5 | 55.3 | **51.6** | 84.5 |
+| unseen stories | GPT-2 small | 30.2 | 63.5 | 42.4 | **41.9** | 74.5 |
+| Shakespeare | GPT-2 medium | 38.3 | 284.7 | 331.3 | **71.0** | 152.1 |
+| Python 3.13 docs | GPT-2 medium | 16.1 | 209.6 | 275.8 | **41.8** | 91.2 |
+| unseen stories | GPT-2 medium | 21.4 | 213.2 | 312.0 | **41.6** | 78.7 |
+| Shakespeare | Pythia-160m | 34.4 | 56.9 | 65.7 | **47.1** | 49.6 |
+| Python 3.13 docs | Pythia-160m | 14.2 | 27.4 | 30.7 | 25.4 | **24.2** |
+| unseen stories | Pythia-160m | 28.3 | 39.6 | 40.9 | **36.6** | 37.4 |
 
-**Classification, both models: `FAIL_LOWPASS_LOSES_TO_A_STRONGER_BASELINE_AT_B48`.**
+**Classification, all three models: `FAIL_LOWPASS_LOSES_TO_A_STRONGER_BASELINE_AT_B48`.**
 
-- **On GPT-2 small, lowpass holds up but does not win.** It beats sink + window 15/15 and our H2O 15/15 at both budgets, and it ties merge (7/15 chunks each way, merge slightly ahead pooled).
-- **On Pythia, lowpass fails outright.** At the 4.7% budget it is worse than plain sink + window in every chunk (44.1 vs 39.5); the summaries make things worse rather than better. At 12.5% it roughly ties sink + window (29.8 vs 29.5, 4/15). H2O and merge both clearly beat it on every text.
-- **Our H2O is not simply broken.** On GPT-2 it scored worse than plain sink + window, which looked suspicious. On Pythia the same code is the best row at 12.5% and close to best at 4.7%. So H2O suits Pythia and not GPT-2 small. Why is not measured.
-- **Merge is the only method that is strong on both models.** It is best or within 1% of best in all four model × budget cells. It is our own implementation, not a reproduction of CaM or D2O.
-- **Probable cause of the Pythia failure (hypothesis, not measured):** lowpass averages many evicted keys into one mean key. In GPT-2 that is fine because positions are added at the input and keys are not rotated. In Pythia, the rotated part of each cached key has been turned by an angle that depends on its position. Averaging keys from many positions partly cancels that part, so the mean key no longer points where the query looks. Merge only combines keys that are already similar, and H2O never averages at all, so neither suffers from this. A fix would be to store un-rotated key summaries and rotate them at read time; that is untested.
-- **Determinism check:** the GPT-2 Shakespeare chunks for lowpass and sink + window reproduce Gate 4's per-chunk NLLs exactly.
-- **Not run:** GPT-2 medium (runner ready: `--model gpt2-medium`). No grouped-KV model, no generation test, no speed or memory benchmark.
+- **Lowpass works only on GPT-2 small.** There it beats sink + window and our H2O in every chunk at both budgets and ties merge (7/15 chunks each way, merge slightly ahead pooled).
+- **On GPT-2 medium, lowpass fails.** At 4.7% it is worse than plain sink + window in every chunk (304 vs 238). At 12.5% it beats sink + window in 13/15 chunks but closes only 7% of the gap to the full cache (179 vs 208, full cache 24). H2O and merge beat it in every chunk at both budgets.
+- **On Pythia, lowpass fails.** At 4.7% it is worse than sink + window in every chunk (44.1 vs 39.5). At 12.5% it roughly ties it (29.8 vs 29.5).
+- **Merge is the only method that is strong on all three models.** It is best, or within 1% of best, in all six model × budget cells. On GPT-2 medium at 12.5% it reaches 30.1 against a full cache of 24.1, while every other method stays above 72. It is our own implementation, not a reproduction of CaM or D2O.
+- **GPT-2 medium does not survive on a sink and a recent window.** Going from 47 to 127 recent tokens only moves sink + window from 238 to 208, far from the full cache's 24. So what medium loses is not recent context but specific older tokens. Methods that keep individual old tokens (H2O) or merge them by similarity (merge) recover much more. Which tokens those are, and whether medium has sinks other than token 0, was not measured.
+- **Our H2O is not simply broken.** It scored worse than sink + window on GPT-2 small, which looked suspicious, but it is the best row on Pythia at 12.5% and far better than sink + window on GPT-2 medium. It suits some models and not others.
+- **The rotary explanation is withdrawn as the main story.** After the Pythia run the README suggested that lowpass failed there because averaging position-rotated keys cancels them. GPT-2 medium uses absolute positions, like GPT-2 small, and lowpass fails there too. Rotation may still hurt on Pythia, but it is not the general reason. A better working hypothesis: lowpass averages all evicted tokens of a time band into one key and value, which works when evicted tokens matter mainly as bulk mass (GPT-2 small, a strong single sink) and fails when a model needs particular old tokens to stay distinguishable (GPT-2 medium). Not measured.
+- **Determinism check:** the GPT-2 small Shakespeare chunks for lowpass and sink + window reproduce Gate 4's per-chunk NLLs exactly.
+- **Not run:** no grouped-KV model, no generation test, no speed or memory benchmark.
 
 ## Where the line stands
 
@@ -311,18 +319,20 @@ PRs 2-4 resident memories on one head, <=29-token texts     ranked each other; a
 Gate 2  window + temporal summaries vs equal-budget window  PASS, but mostly lost sink mass
 Gate 3  sink control, one head                              PASS; lowpass > band 10/10
 Gate 4  all 144 heads, perplexity, vs sink + window         PASS 8/8; 12.5% cache -> 74.3 vs 73.2 full
-Gate 5  GPT-2: new texts, vs H2O and merge                  FAIL primary: ties merge, beats H2O
+Gate 5  GPT-2 small: new texts, vs H2O and merge            FAIL primary: ties merge, beats H2O
+Gate 5  GPT-2 medium                                        FAIL: lowpass loses to H2O and merge 0/15;
+                                                            merge 30.1 vs full 24.1 at 12.5%
 Gate 5  Pythia-160m (rotary positions)                      FAIL: lowpass worse than sink + window;
                                                             H2O and merge win
 ```
 
-**Bottom line.** Keeping evicted tokens instead of dropping them helps a lot on both models tested, but the way you keep them matters.
+**Bottom line.** Keeping evicted tokens instead of dropping them matters a lot on all three models, but how you keep them decides everything.
 
-- The similarity **merge** helped on both GPT-2 small and Pythia-160m. It was the most robust method here.
-- This repo's **leaky multi-timescale lowpass** helped only on GPT-2 small, where positions are added once at the input. On Pythia, which rotates keys by position, it did worse than no summaries at all.
+- The similarity **merge** helped on all three models and was the best or near-best method in every setting. On GPT-2 medium it was the only method that stayed near the full cache.
+- This repo's **leaky multi-timescale lowpass** helped only on GPT-2 small. On GPT-2 medium and Pythia-160m it did worse than plain sink + window at the tight budget.
 - The Sihti-style partitioned **bands** lost to lowpass in all 18 comparisons in Gates 3–4.
 
-So the brain-window idea (Rytmi's fast/slow traces, TATWATASW's time windows) produced a working bounded-memory layout for one absolute-position model. It did not produce a method that beats existing merge-style KV compression, and in its current form it does not survive rotary positions. Nothing here removes a real KV cache or speeds up generation.
+So the brain-window idea (Rytmi's fast/slow traces, TATWATASW's time windows) produced a bounded-memory layout that worked on one small model and did not generalise. Its Gate 4 success came from a model where evicted tokens matter mostly as bulk mass. The method that generalised across these three models is merge-style compression, which already exists in the literature. Nothing here removes a real KV cache or speeds up generation.
 
 ## Why this connects to the older line
 
@@ -381,6 +391,7 @@ python -m experiments.run_gpt2_shadow --out /tmp/gpt2_shadow.json
 - `experiments/data/tinyshakespeare_head.txt` — Gate 4 text fixture.
 - `results/gpt2_perplexity.json` — frozen Gate 4 receipt.
 - `results/gate5_gpt2.json` — frozen Gate 5 receipt (GPT-2 small).
+- `results/gate5_gpt2medium.json` — frozen Gate 5 receipt (GPT-2 medium).
 - `results/gate5_pythia160m.json` — frozen Gate 5 receipt (Pythia-160m).
 - `src/transformer_to_x/cache_policies.py` — H2O and merge baselines.
 - `src/transformer_to_x/neox_numpy.py` — NumPy GPT-NeoX (Pythia) with rotary positions (parity PASS on Pythia-160m).
